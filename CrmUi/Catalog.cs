@@ -35,18 +35,7 @@ namespace CrmUi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (typeof(T) == typeof(Product))
-            {
 
-            }
-            else if (typeof(T) == typeof(Seller))
-            {
-
-            }
-            else if (typeof(T) == typeof(Customer))
-            {
-
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
