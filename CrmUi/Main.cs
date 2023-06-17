@@ -75,5 +75,16 @@ namespace CrmUi
                 db.SaveChanges();
             }
         }
+
+        private void сущностиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ModelForm();
+            form.Show();
+        }
     }
 }
