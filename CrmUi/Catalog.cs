@@ -35,7 +35,33 @@ namespace CrmUi
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (typeof(T) == typeof(Customer))
+            {
+                var form = new CustomerForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Customers.Add(form.Customer);
+                    db.SaveChanges();
+                }
+            }
+            else if (typeof(T) == typeof(Product))
+            {
+                var form = new ProductForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Products.Add(form.Product);
+                    db.SaveChanges();
+                }
+            }
+            else if(typeof(T) == typeof(Seller))
+            {
+                var form = new SellerForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Sellers.Add(form.Seller);
+                    db.SaveChanges();
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -81,6 +107,41 @@ namespace CrmUi
                         db.SaveChanges();
                         dataGridView.Update();
                     }
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var id = dataGridView.SelectedRows[0].Cells[0].Value;
+            if (typeof(T) == typeof(Product))
+            {
+                var product = set.Find(id) as Product;
+                if (product != null)
+                {
+                    db.Products.Remove(product);
+                    db.SaveChanges();
+                    dataGridView.Update();
+                }
+            }
+            else if (typeof(T) == typeof(Seller))
+            {
+                var seller = set.Find(id) as Seller;
+                if (seller != null)
+                {
+                    db.Sellers.Remove(seller);
+                    db.SaveChanges();
+                    dataGridView.Update();
+                }
+            }
+            else if (typeof(T) == typeof(Customer))
+            {
+                var customer = set.Find(id) as Customer;
+                if (customer != null)
+                {
+                    db.Customers.Remove(customer);
+                    db.SaveChanges();
+                    dataGridView.Update();
                 }
             }
         }

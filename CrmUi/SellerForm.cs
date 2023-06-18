@@ -21,7 +21,7 @@ namespace CrmUi
 
         public SellerForm(Seller seller) : this() 
         {
-            Seller = seller ?? new Seller;
+            Seller = seller ?? new Seller();
             textBox1.Text = seller.Name;
         }
 
